@@ -9,7 +9,6 @@ void insertion(vector<int> &arr, int j, int key)
         return;
     }
 
-
     arr[j + 1] = arr[j];
 
     insertion(arr, j - 1, key);
@@ -20,9 +19,11 @@ void insertionSort(vector<int> &arr, int n, int i)
     if (i == n)
         return;
 
-    int key = arr[i];
-    insertion(arr, i - 1, key);
-
+    if (i > 0)
+    {
+        int key = arr[i];
+        insertion(arr, i - 1, key);
+    }
     insertionSort(arr, n, i + 1);
 }
 
@@ -30,7 +31,7 @@ int main()
 {
     vector<int> arr = {3, 2, 12, 43, 3, 5, 78};
     int n = arr.size();
-    insertionSort(arr, n, 1);
+    insertionSort(arr, n, 0);
     for (int x : arr)
         cout << x << " ";
 }
