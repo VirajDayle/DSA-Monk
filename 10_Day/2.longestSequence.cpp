@@ -5,7 +5,7 @@ int longestConsecutive(vector<int> &nums)
 {
     int longest = 1;
     unordered_set<int> ars(nums.begin(), nums.end());
-    for (int i : nums)
+    for (int i : ars)
     {
         if (ars.find(i - 1) == ars.end())
         {
